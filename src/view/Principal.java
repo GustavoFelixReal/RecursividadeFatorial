@@ -1,27 +1,23 @@
 package view;
+
 import javax.swing.JOptionPane;
 
 import controller.FatorialController;
 
 public class Principal {
 
-	public static void main (String[] args) {
+	public static void main(String[] args) {
+
+		int entrada;
+		FatorialController dc = new FatorialController();
 		
+		do {  
+			entrada = Integer.parseInt(JOptionPane.showInputDialog(null, "Entre um número entre 1 e 12", JOptionPane.QUESTION_MESSAGE));
+		} while (entrada <= 0 || entrada > 12);
+
 		
-	    int entrada;
-	    
-	    
-	    entrada = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o número do Fatorial",JOptionPane.QUESTION_MESSAGE));
-	    while (entrada > 12){
-	    	entrada = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite novamente o número do Fatorial",JOptionPane.QUESTION_MESSAGE));
-	    		    }
-	    
-	    
-	    FatorialController dc = new FatorialController();
-	    int saida = 0;
-		int fat = dc.fat(entrada, saida);
+		int fat = dc.fat(entrada);
 		System.out.println(fat);
-		
 	}
 
 }
